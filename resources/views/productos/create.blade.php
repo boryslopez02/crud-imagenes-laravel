@@ -28,6 +28,9 @@
                                         placeholder=""
                                         class="w-full rounded-md border bg-white py-3 px-6 text-base font-medium outline-none focus:shadow-md"
                                     />
+                                    @error('nombre')
+                                    <div class="font-medium text-red-800">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="grid grid-cols-1">
                                     <label
@@ -43,6 +46,9 @@
                                         placeholder=""
                                         class="w-full rounded-md border bg-white py-3 px-6 text-base font-medium outline-none focus:shadow-md"
                                     />
+                                    @error('descripcion')
+                                    <div class="font-medium text-red-800">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 mx-7 my-5">
@@ -56,6 +62,9 @@
                                     </div>
                                     <p class="text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider uppercase">Seleccione la imagen</p>
                                 </label>
+                                @error('imagen')
+                                    <div class="font-medium text-red-800">{{ $message }}</div>
+                                @enderror
                                 <input
                                     type="file"
                                     name="imagen"

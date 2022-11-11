@@ -39,7 +39,14 @@ class ProductoController extends Controller
         $request->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
-            'imagen' => 'required|image|mimes:jpg,jpeg,png,svg|max:1024',
+            'imagen' => 'required|image|mimes:jpg,jpeg,png,svg|max:4096',
+        ], [
+            'nombre.required' => 'El nombre del producto es requerido',
+            'descripcion.required' => 'La descripción del producto es requerida',
+            'imagen.required' => 'La imagen del producto es requerida',
+            'imagen.image' => 'Debe ingresar un archivo de tipo imagen',
+            'imagen.mimes' => 'Tipo de archivo no soportado',
+            'imagen.max' => 'El archivo ingresado es muy grande',
         ]);
 
         $producto = $request->all();
@@ -89,7 +96,14 @@ class ProductoController extends Controller
         $request->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
-            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
+            'imagen' => 'required|image|mimes:jpg,jpeg,png,svg|max:4096',
+        ], [
+            'nombre.required' => 'El nombre del producto es requerido',
+            'descripcion.required' => 'La descripción del producto es requerida',
+            'imagen.required' => 'La imagen del producto es requerida',
+            'imagen.image' => 'Debe ingresar un archivo de tipo imagen',
+            'imagen.mimes' => 'Tipo de archivo no soportado',
+            'imagen.max' => 'El archivo ingresado es muy grande',
         ]);
 
         $prod = $request->all();
